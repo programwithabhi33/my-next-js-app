@@ -84,6 +84,12 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
 }
+.abhi{
+  background: red;
+}
+.abhi2{
+  color: green;
+}
 
 .card:hover,
 .card:focus,

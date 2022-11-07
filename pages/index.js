@@ -22,7 +22,7 @@ export default function Home() {
          Hunting Coder for the  Awesome Developers
         </p>
         <nav>
-          <ul>
+          <ul className={`${styles.abhi} ${styles.abhi2}`}>
             <Link href='/'><a><li>Home</li></a></Link>
             <Link href='/about'><a><li>About</li></a></Link>
             <Link href='/contact'><a><li>Contact</li></a></Link>
