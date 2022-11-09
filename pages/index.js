@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import Link from 'next/link'
+import Dummy from '../components/dummy'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -21,10 +22,11 @@ export default function Home() {
       </style>
       <Script src='/sc.js' strategy="lazyOnload"></Script>
       <main className={styles.main}>
+        <Dummy/>
         <h1 className={styles.title}>
          Hunting Coder
         </h1>
-        <span className='abhi'>Abhishek Developer</span>
+        <span className='abhi dummy'>Abhishek Developer</span>
 
         <p className={styles.description}>
          Hunting Coder for the  Awesome Developers
