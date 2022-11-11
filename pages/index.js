@@ -23,6 +23,7 @@ export default function Home() {
       <Script src='/sc.js' strategy="lazyOnload"></Script>
       <main className={styles.main}>
         <Dummy/>
+        <Image src={'/abhi.png'}  width={222} height={222}/>
         <h1 className={styles.title}>
          Hunting Coder
         </h1>
