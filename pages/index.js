@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
-import Link from 'next/link'
 import Dummy from '../components/dummy'
 import styles from '../styles/Home.module.css'
 
@@ -24,7 +23,7 @@ export default function Home() {
       <main className={styles.main}>
         <Dummy/>
         {/* The image component should contain width,height or layout  */}
-        <Image src={'/abhi.png'}  width={222} height={222}/>
+        <Image src={'/abhi.png'}  width={222} height={100}/>
         <h1 className={styles.title}>
          Hunting Coder
         </h1>
@@ -33,13 +32,6 @@ export default function Home() {
         <p className={styles.description}>
          Hunting Coder for the  Awesome Developers
         </p>
-        <nav>
-          <ul className={`${styles.abhi} ${styles.abhi2}`}>
-            <Link href='/'><a><li>Home</li></a></Link>
-            <Link href='/about'><a><li>About</li></a></Link>
-            <Link href='/contact'><a><li>Contact</li></a></Link>
-          </ul>
-          </nav>
       </main>
 
       <footer className={styles.footer}>
