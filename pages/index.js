@@ -1,10 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
+import { useEffect,useState } from 'react'
 import Dummy from '../components/dummy'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [blogs, setBlogs] = useState([])
+  // use Effect will run every time because inside this you update the state and the useeffect runs every time when the dom change and the state is the part of the dom
+  // when you gave a second argument to useeffect to empty array useeffect will run only once after dom render
+  // also you can gave this array to any kind of state or variable when it change useeffect will run  
+  useEffect(() => {
+    fetch('http://localhost:3000/api/blogs')
+    .then((data)=>{
+      return data.json();
+    }).then((data)=>{
+      console.log(data)
+      setBlogs(data)
+    },[])
+    // console.log("abhishek is under the useEffect")
+  })
+  
   return (
     <div className={styles.container}>
       <Head>
