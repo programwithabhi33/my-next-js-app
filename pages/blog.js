@@ -12,7 +12,7 @@ const main = () => {
     .then((data)=>{
       return data.json();
     }).then((data)=>{
-      console.log(data)
+      // console.log(data)
       setBlogs(data)
     })
     // console.log("abhishek is under the useEffect")
@@ -24,7 +24,7 @@ const main = () => {
     <div key={blogItem.slug} className={styles.container}>
       <Link href={`/blogpost/${blogItem.slug}`}>
       <h2 className={styles.hover}>{blogItem.name}</h2></Link>
-      <p>{blogItem.description}</p>
+      <p>{blogItem.description.substr(0,140)}</p>
     </div>)
       })}
     </main>
