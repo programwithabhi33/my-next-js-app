@@ -4,7 +4,7 @@ async function abhi(req, res) {
         // console.log(req.query.slug)
         // console.log(data);
         if (err){
-            res.status(500).json({error:"No such file found"});
+            res.status(300).json({error:"No such file found"});
         }
         // console.log(typeof data)
         // const mainThing = JSON.parse(data)

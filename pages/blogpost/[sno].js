@@ -19,16 +19,27 @@ const Post = () => {
       return data.json();
     }).then((data)=>{
       console.log(data)
-      setBlog(data)
+      if(data.error){
+        data = {
+          name:"No file found",
+          description:"No file",
+        }
+        setBlog(data)
+      }
+      else{
+        setBlog(data)
+      }
     })
     // console.log("abhishek is under the useEffect")
   },[router.isReady])
 
   return (
+    <>
     <div className={styles.container}>
       <h1>{blog && blog.name}</h1>
       <p>{ blog && blog.description}</p>
     </div>
+    </>
   )
 }
 
