@@ -2,21 +2,22 @@ import Link from 'next/link'
 import {React,useState,useEffect} from 'react'
 import styles from '../styles/Blog.module.css'
 
-const main = () => {
-  const [blogs, setBlogs] = useState([])
+const main = (props) => {
+  const [blogs, setBlogs] = useState(props.allBlogs)
+  console.log(blogs)
   // use Effect will run every time because inside this you update the state and the useeffect runs every time when the dom change and the state is the part of the dom
   // when you gave a second argument to useeffect to empty array useeffect will run only once after dom render
   // also you can gave this array to any kind of state or variable when it change useeffect will run  
-  useEffect(() => {
-    fetch('http://localhost:3000/api/blogs')
-    .then((data)=>{
-      return data.json();
-    }).then((data)=>{
-      // console.log(data)
-      setBlogs(data)
-    })
-    // console.log("abhishek is under the useEffect")
-  },[])
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/api/blogs')
+  //   .then((data)=>{
+  //     return data.json();
+  //   }).then((data)=>{
+  //     // console.log(data)
+  //     setBlogs(data)
+  //   })
+  //   // console.log("abhishek is under the useEffect")
+  // },[])
   return (
     <main>
       {blogs.map((blogItem)=>{
@@ -29,6 +30,15 @@ const main = () => {
       })}
     </main>
   )
+}
+
+// This function will fun on the server 
+export async function getServerSideProps(context) {
+  let response = await fetch('http://localhost:3000/api/blogs');
+  let allBlogs = await response.json();
+  return {
+    props: {allBlogs}// will be passed to the page component as props
+  }
 }
 export default main
 
