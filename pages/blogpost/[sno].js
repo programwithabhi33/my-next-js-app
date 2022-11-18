@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import styles from '../../styles/Blog.module.css'
+const fs = require('fs');
 
 const Post = (props) => {
 
@@ -44,15 +45,37 @@ const Post = (props) => {
     </>
   )
 }
-export async function getServerSideProps(context) {
-  console.log(context)
-  let {sno} = context.query;
-  console.log(sno)
-  let res = await fetch(`http://localhost:3000/api/getblog?slug=${sno}`);
-  let Blog = await res.json();
+// export async function getServerSideProps(context) {
+//   console.log(context)
+//   let {sno} = context.query;
+//   console.log(sno)
+//   let res = await fetch(`http://localhost:3000/api/getblog?slug=${sno}`);
+//   let Blog = await res.json();
 
+//   return {
+//     props: { Blog }, // will be passed to the page component as props
+//   }
+// }
+
+// GetStaticPaths Returns all the paths to create multiple pages 
+export async function getStaticPaths() {
   return {
-    props: { Blog }, // will be passed to the page component as props
+    paths: [
+      { params: { sno: 'abhi' } },
+      { params: { sno: 'harry' } }],
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+// `getStaticPaths` requires using `getStaticProps`
+export async function getStaticProps(context) {
+  // console.log(context)
+  const slug = context.params;
+  const Blog = await fs.promises.readFile(`jsondata/${slug.sno}.json`,`utf8`);
+  // console.log(blog)
+  return {
+    // Passed to the page component as props
+    props: { Blog: JSON.parse(Blog) },
   }
 }
 export default Post
