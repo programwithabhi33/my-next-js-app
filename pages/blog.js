@@ -33,6 +33,7 @@ const Blogs = (props) => {
   )
 }
 
+// Get Static props use passes the props to the function component
 export async function getStaticProps(context) {
   let allBlogs = []
   const dirRead = await fs.promises.readdir('./jsondata')
