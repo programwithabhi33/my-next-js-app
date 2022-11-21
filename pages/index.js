@@ -1,5 +1,5 @@
 import Head from 'next/head'
-// import Image from 'next/image'
+import Image from 'next/image'
 import Script from 'next/script'
 import { useEffect,useState } from 'react'
 import Dummy from '../components/dummy'
@@ -24,7 +24,7 @@ export default function Home() {
       <main className={styles.main}>
         <Dummy/>
         {/* The image component should contain width,height or layout  */}
-        {/* <Image src={'/abhi.png'}  width={222} height={100}/> */}
+        <Image src={'/abhi.png'}  width={222} height={100}/>
         <h1 className={styles.title}>
          Hunting Coder
         </h1>
@@ -43,8 +43,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
-            <image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
