@@ -9,6 +9,11 @@ const Post = (props) => {
   // if(!router.isReady) return;
   // const { sno } = router.query
   // console.log(sno)
+
+  // function createMarkup(description) {
+  //   return {__html: description};
+  // }
+
   const [blog, setBlog] = useState(props.Blog)
   // use Effect will run every time because inside this you update the state and the useeffect runs every time when the dom change and the state is the part of the dom
   // when you gave a second argument to useeffect to empty array useeffect will run only once after dom render
@@ -40,7 +45,7 @@ const Post = (props) => {
     <>
       <div className={styles.container}>
         <h1>{blog && blog.name}</h1>
-        <p>{blog && blog.description}</p>
+        {/* <p>{blog &&  <div dangerouslySetInnerHTML={createMarkup(blog.description)}></div> } </p> */}
       </div>
     </>
   )
