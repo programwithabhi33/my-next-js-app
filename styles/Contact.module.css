@@ -1,0 +1,26 @@
+.container{
+    max-width: 400px;
+    margin: auto;
+}
+.htmlFormControl{
+    padding: 10px 10px;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+}
+.btn{
+    color: black;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    outline: none;
+}
+.btnParent{
+    display: grid;
+    place-items: center;
+    max-width: 200px;
+    margin: auto;
+}

@@ -1,11 +1,12 @@
 import next from 'next'
 import React, { useState } from 'react'
+import styles from '../styles/Contact.module.css'
 
 export default function contact() {
-  const [name, setname] = useState('name')
-  const [email, setemail] = useState('email')
-  const [phone, setphone] = useState('phone')
-  const [desc, setdesc] = useState('desc')
+  const [name, setname] = useState()
+  const [email, setemail] = useState()
+  const [phone, setphone] = useState()
+  const [desc, setdesc] = useState()
 
   let onSubmit = (e) => {
     e.preventDefault();
@@ -45,26 +46,29 @@ export default function contact() {
 
   return (
     <>
-      <div>This is the contact page</div>
+      <div className={styles.container}>
       <form onSubmit={onSubmit}>
-        <div className="mb-3">
+        <div className={styles.flex}>
           <label htmlFor="examplehtmlFormControlInput1" className="htmlForm-label">Name</label>
-          <input onChange={onChange} value={name} name='name' type="text" className="htmlForm-control" id="name" placeholder="Enter your name" required minLength={3} />
+          <input onChange={onChange} value={name} name='name' type="text" className={styles.htmlFormControl} id="name" placeholder="Enter your name" required minLength={3} />
         </div>
-        <div className="mb-3">
+        <div className={styles.flex}>
           <label htmlFor="examplehtmlFormControlInput1" className="htmlForm-label">Email address</label>
-          <input onChange={onChange} value={email} name='email' type="email" className="htmlForm-control" id="email" placeholder="Enter your email" required minLength={4} />
+          <input onChange={onChange} value={email} name='email' type="email" className={styles.htmlFormControl} id="email" placeholder="Enter your email" required minLength={4} />
         </div>
-        <div className="mb-3">
+        <div className={styles.flex}>
           <label htmlFor="examplehtmlFormControlInput1" className="htmlForm-label">Phone</label>
-          <input onChange={onChange} value={phone} name='phone' type="phone" className="htmlForm-control" id="phone" placeholder="Enter your phone" required minLength={10} />
+          <input onChange={onChange} value={phone} name='phone' type="phone" className={styles.htmlFormControl} id="phone" placeholder="Enter your phone" required minLength={10} />
         </div>
-        <div className="mb-3">
+        <div className={styles.flex}>
           <label htmlFor="examplehtmlFormControlTextarea1" className="htmlForm-label">Example textarea</label>
-          <textarea name='desc' onChange={onChange} value={desc} className="htmlForm-control" id="examplehtmlFormControlTextarea1" rows="3" />
+          <textarea name='desc' onChange={onChange} value={desc} className={styles.htmlFormControl} id="examplehtmlFormControlTextarea1" rows="3" />
         </div>
-        <button className="btn" id="submit" type='submit'>Submit</button>
+        <div className={styles.btnParent}>
+        <button className={styles.btn} id="submit" type='submit'>Submit</button>
+        </div>
       </form>
+    </div>
     </>
   )
 }
