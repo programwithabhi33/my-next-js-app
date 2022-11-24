@@ -8,9 +8,19 @@ async function abhishek(req, res) {
     //     res.status(200).json(data)
     //     // res.status(200).json({name:"abhishek"})
     // });
+    // let fileArray = []
+    // const dirRead = await fs.promises.readdir('./jsondata')
+    // for (let index = 0; index < dirRead.length; index++) {
+    //     const element = dirRead[index];
+    //     let file = await fs.promises.readFile('jsondata/'+element,'utf-8')
+    //     fileArray.push(JSON.parse(file));
+    // }
+    // console.log("The count is the")
+    // console.log(req.query.count)
     let fileArray = []
     const dirRead = await fs.promises.readdir('./jsondata')
-    for (let index = 0; index < dirRead.length; index++) {
+    const data = dirRead.slice(0,req.query.count);
+    for (let index = 0; index < data.length; index++) {
         const element = dirRead[index];
         let file = await fs.promises.readFile('jsondata/'+element,'utf-8')
         fileArray.push(JSON.parse(file));

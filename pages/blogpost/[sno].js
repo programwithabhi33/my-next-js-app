@@ -67,7 +67,14 @@ export async function getStaticPaths() {
   return {
     paths: [
       { params: { sno: 'abhi' } },
-      { params: { sno: 'harry' } }],
+      { params: { sno: 'abhishek' } },
+      { params: { sno: 'another' } },
+      { params: { sno: 'blog' } },
+      { params: { sno: 'harry' } },
+      { params: { sno: 'main' } },
+      { params: { sno: 'niranjan' } },
+      { params: { sno: 'rushi' } },
+      { params: { sno: 'test' } },],
     fallback: false, // can also be true or 'blocking'
   }
 }
